@@ -236,7 +236,6 @@
         <div><h1 class="link-hover">Support us</h1></div>
         <div><h1 class="link-hover">About us</h1></div>
         <div><h1 class="link-hover">Log In</h1></div>
-        <div><h1 class="link-hover">Languages</h1></div>
     </header>
     <main>
         <div class="text__1">
