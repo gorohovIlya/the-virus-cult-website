@@ -106,6 +106,7 @@
 <body>
     <h1>Registration</h1>
         <form method="POST" action="{{ route('register') }}">
+            @csrf
             <div>
                 <label>Nickname:</label>
                 <input type="text" name="name" value="{{ old('name')}}">
