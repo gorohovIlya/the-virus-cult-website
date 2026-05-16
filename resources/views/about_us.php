@@ -6,6 +6,7 @@
     <title>The Virus Cult - Visual Novel</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             background: black;
             margin: 0;
             padding: 0;
@@ -31,7 +32,6 @@
             margin: 0 70px 0 0;
             color: white;
             font-size: 18px;
-            font-family: Arial, sans-serif;
         }
         header div {
             margin: 0;
@@ -99,7 +99,7 @@
         .text__2 {
             margin-top: 100px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             min-height: 400px;
             padding: 0 80px;
@@ -111,7 +111,7 @@
         .text__3 {
             margin-top: 100px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             min-height: 400px;
             padding: 0 80px;
@@ -126,7 +126,7 @@
             font-size: 25px;
             line-height: 1.5;
             font-family: Arial, sans-serif;
-            text-align: left;
+            text-align: center;
         }
         .plot p {
             margin: 0;
@@ -135,24 +135,26 @@
             width: 45%;
         }
         .text__3 > div:last-child {
-            text-align: right;
+            text-align: center;
         }
+        /* скрываем картинки и контейнеры с ними */
         .text__2 img,
         .text__3 img {
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(128, 0, 128, 0.5);
+            display: none;
         }
         .text__2 > div:has(img),
         .text__3 > div:has(img) {
-            width: 400px;
-            flex-shrink: 0;
+            display: none;
         }
-
-        .text__3 h1{
-            margin-right: 10px;
+        /* делаем текст по центру во всех блоках */
+        .text__2,
+        .text__3 {
+            justify-content: center;
+        }
+        .text__2 .plot,
+        .text__3 .plot {
+            width: 80%;
+            text-align: center;
         }
         header div:not(.img) > h1:hover {
             color: purple;
@@ -168,7 +170,6 @@
         <div><h1 class="link-hover">Support us</h1></div>
         <div><h1 class="link-hover">About us</h1></div>
         <div><h1 class="link-hover">Log In</h1></div>
-        <div><h1 class="link-hover">Languages</h1></div>
     </header>
     <main>
         <div class="text__1">

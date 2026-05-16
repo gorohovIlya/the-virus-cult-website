@@ -6,6 +6,7 @@
     <title>The Virus Cult - Visual Novel</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             background: black;
             margin: 0;
             padding: 0;
@@ -31,7 +32,6 @@
             margin: 0 70px 0 0;
             color: white;
             font-size: 18px;
-            font-family: Arial, sans-serif;
         }
         header div {
             margin: 0;
@@ -236,7 +236,6 @@
         <div><h1 class="link-hover">Support us</h1></div>
         <div><h1 class="link-hover">About us</h1></div>
         <div><h1 class="link-hover">Log In</h1></div>
-        <div><h1 class="link-hover">Languages</h1></div>
     </header>
     <main>
         <div class="text__1">
