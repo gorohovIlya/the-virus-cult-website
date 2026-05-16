@@ -334,7 +334,6 @@
             </div>
         </div>
         <div class="text__4">
-            <p>Our plans</p>
             <button>Our plans</button>
         </div>
         <div class="text__3">
