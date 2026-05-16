@@ -195,16 +195,15 @@
         <div><h1 class="link-hover">Support us</h1></div>
         <div><h1 class="link-hover">About us</h1></div>
         <div><h1 class="link-hover">Log In</h1></div>
-        <div><h1 class="link-hover">Languages</h1></div>
     </header>
     <main>
         <div class="description">
             <p>You can choose different formats for downloading the visual novel</p>
         </div>
         <div class="download">
-            <button type="windows">Скачать на Windows</button>
-            <button type="linux">Скачать на Linux</button>
-            <button type="mac">Скачать на Mac</button>
+            <button type="windows">Download for Windows</button>
+            <button type="linux">Download for Linux</button>
+            <button type="mac">Download for Mac</button>
         </div>
     </main>
     <footer>
