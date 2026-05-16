@@ -6,6 +6,7 @@
     <title>The Virus Cult - Visual Novel</title>
     <style>
         html, body {
+            font-family: Arial, sans-serif;
             height: 100%;
             margin: 0;
             padding: 0;
@@ -45,7 +46,6 @@
             margin: 0 70px 0 0;
             color: white;
             font-size: 18px;
-            font-family: Arial, sans-serif;
         }
         
         header div {
