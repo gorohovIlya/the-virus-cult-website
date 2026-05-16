@@ -14,11 +14,11 @@
                 <a href="{{ route('main-page') }}">Home</a>
             </h1>
         </div>
-        <div>
+        <!-- <div>
             <h1 class="link-hover">
                 <a href="{{ route('our-plans') }}">Plans</a>
             </h1>
-        </div>
+        </div> -->
         <div>
             <h1 class="link-hover">
                 <a href="{{ route('download') }}">Download</a>

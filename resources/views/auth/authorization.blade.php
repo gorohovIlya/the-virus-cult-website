@@ -28,7 +28,7 @@
             <button type="submit">Log in</button>
         </div>
         <p style="color: #fff">
-            Нет аккаунта? <a href="{{ route('register') }}">Зарегистрироваться</a>
+            Don't have an account? <a href="{{ route('register') }}">Register now</a>
         </p>
     </form>
 </body>
