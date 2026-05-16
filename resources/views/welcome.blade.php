@@ -31,7 +31,7 @@
                 
                 <a href="{{ url('/dashboard') }}" class="underline">Перейти в личный кабинет</a>
                 
-                <form method="POST" action="{{ route('logout') }}" class="inline">
+                <form method="GET" action="{{ route('logout') }}" class="inline">
                     @csrf
                     <button type="submit" class="underline text-red-500">Выйти</button>
                 </form>

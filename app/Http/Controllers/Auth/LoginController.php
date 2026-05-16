@@ -10,7 +10,7 @@ class LoginController
 {
     public function create()
     {
-        return view('auth.login');
+        return view('auth.authorization');
     }
 
     public function store(Request $request)
