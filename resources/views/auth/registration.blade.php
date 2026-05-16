@@ -148,6 +148,9 @@
                 @csrf
                 <button type="submit">Register</button>
             </div>
+        <p style="color: #fff">
+            Already have an account? <a href="{{ route('login') }}">Log in</a>
+        </p>
         </form>
 </body>
 </html>
