@@ -62,6 +62,8 @@ Route::get('/support-us', function() {
     return view('support_us');
 })->name('support-us');
 
+require __DIR__ . '/reviews.php';
+
 
 
 
