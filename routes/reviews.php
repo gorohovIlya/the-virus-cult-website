@@ -12,4 +12,4 @@ Route::controller(ReviewController::class)->group(function()
     Route::post('/', 'store');
 });
 
-Route::get('/{reviewId}/process', ProcessReviewController::class);
+//Route::get('/{reviewId}/process', ProcessReviewController::class);
