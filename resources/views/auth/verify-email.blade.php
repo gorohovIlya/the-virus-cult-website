@@ -1,3 +1,10 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Virus Cult - Visual Novel</title>
+    @vite(['resources/css/verify-email.css'])
+</head>
+<body>
 <div class="verify-email-container">
     <h1>Подтвердите ваш E-mail</h1>
     
@@ -24,3 +31,4 @@
         </form>
     </div>
 </div>
+</body>
