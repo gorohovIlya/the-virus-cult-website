@@ -2,36 +2,46 @@ body {
     font-family: Arial, sans-serif;
     background: black;
     margin: 0;
+    padding: 0;
+}
+
+.verify-email-container {
+    max-width: 400px;
+    margin: 50px auto;
     padding: 20px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 p {
     color: white;
     text-align: center;
-    font-size: 18px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: #b77cff;
-    text-shadow: 0 0 8px rgba(183, 124, 255, 0.5);
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 320px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
     gap: 12px;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 button {
@@ -45,7 +55,7 @@ button {
     box-sizing: border-box;
     transition: all 0.3s ease;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 button:hover {
@@ -59,17 +69,15 @@ button:active {
     transform: translateY(1px);
 }
 
-.inline {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 12px;
-    padding: 0;
+.actions form:last-child button {
+    background: none;
+    border: none;
+    color: blue;
+    padding: 6px 8px;
 }
 
-.inline button {
-    margin-top: 0;
+.actions form:last-child button:hover {
+    background: none;
+    transform: translateY(-3px);
+    box-shadow: none;
 }

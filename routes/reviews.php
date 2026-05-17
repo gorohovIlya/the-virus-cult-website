@@ -16,3 +16,4 @@ Route::get('/feedback', [ReviewController::class, 'index'])->name('feedback');
 Route::middleware(['auth'])->group(function () {
     Route::post('/feedback', [ReviewController::class, 'store'])->name('feedback.store');
 });
+

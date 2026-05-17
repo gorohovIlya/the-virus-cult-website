@@ -1,9 +1,80 @@
 html, body {
-    font-family: Arial, sans-serif;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+            font-family: Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #1a1a2e;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        
+        footer {
+            background: #1a1a2e;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        
+        h1 {
+            margin: 0 70px 0 0;
+            color: white;
+            font-size: 18px;
+        }
+        
+        header div {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .img {
+            padding-right: 80px;
+            padding-left: 20px;
+        }
+        
+        .img h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .text_for_footer {
+            color: white;
+            font-size: 35px;
+            margin: 0;
+        }
+        
+        div:not(.img) > h1 {
+            cursor: pointer;
+        }
+        
+        div:not(.img) > h1:hover {
+            color: purple;
+        }
+        
+        main {
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
 
 body {
     background: black;
@@ -46,10 +117,24 @@ h1 {
     font-size: 18px;
 }
 
-.img {
-    padding-right: 80px;
-    padding-left: 50px;
-}
+        .rewiew button {
+            margin-top: 25px;
+            width: 260px;
+            height: 55px;
+            font-size: 20px;
+            font-weight: bold;
+            border: #09010f solid 3px;
+            background-color: #1a1a2e;
+            border-radius: 50px;
+            cursor: pointer;
+            color: white;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
 
 .img h1 {
     font-size: 28px;
