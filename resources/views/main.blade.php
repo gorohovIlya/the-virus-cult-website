@@ -76,7 +76,7 @@
         </div>
         <div class="text__3">
             <div class="galery">
-                <p>Galery</p>
+                <p>Gallery</p>
                 <div class="description"><p>Many people have been working as programmers for a long time. They write code, build websites, and design neural networks. But no one thinks about who's really running it all.</p></div>
             </div>
             
