@@ -61,26 +61,26 @@
         </div>
         <div class="text__2">
             <div class="plot">
-                <h1>Name</h1>
-                <p>The visual novel takes place in Berkeley. The main character, Helen, witnesses strange events unfolding at the Institute of Solar-Terrestrial Physics. She meets Liliana, a resistance member fighting a virus cult. Helen decides to join her. Let's see what happens next.</p>
+                <h1>Ilya Gorokhov</h1>
+                <p>Our web developer and creator of all the puzzles for our novel. And also just a cool guy.</p>
             </div>
         </div>
         <div class="text__2">
             <div class="plot">
-                <h1>Name</h1>
-                <p>The visual novel takes place in Berkeley. The main character, Helen, witnesses strange events unfolding at the Institute of Solar-Terrestrial Physics. She meets Liliana, a resistance member fighting a virus cult. Helen decides to join her. Let's see what happens next.</p>
+                <h1>Marya Savelyeva</h1>
+                <p>Our background artist and also the head of our team.</p>
             </div>
         </div>
         <div class="text__2">
             <div class="plot">
-                <h1>Name</h1>
-                <p>The visual novel takes place in Berkeley. The main character, Helen, witnesses strange events unfolding at the Institute of Solar-Terrestrial Physics. She meets Liliana, a resistance member fighting a virus cult. Helen decides to join her. Let's see what happens next.</p>
+                <h1>Maria Henoh</h1>
+                <p>Our artist who worked on all the characters. (They're absolutely amazing!!!)</p>
             </div>
         </div>
         <div class="text__2">
             <div class="plot">
-                <h1>Name</h1>
-                <p>The visual novel takes place in Berkeley. The main character, Helen, witnesses strange events unfolding at the Institute of Solar-Terrestrial Physics. She meets Liliana, a resistance member fighting a virus cult. Helen decides to join her. Let's see what happens next.</p>
+                <h1>Sergey Pleskunov</h1>
+                <p>The person who came up with the game's entire lore and created the website's frontend. (No AI was used for the story.)</p>
             </div>
         </div>
     </main>
