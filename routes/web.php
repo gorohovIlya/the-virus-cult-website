@@ -69,4 +69,5 @@ Route::get('/support-us/donate', function() {
     return redirect('https://www.donationalerts.com/r/theviruscultproject');
 })->name('donationalerts');
 
+Route::get('/download/file/{platform}', [DownloadController::class, 'downloadGame'])->name('game.download');
 

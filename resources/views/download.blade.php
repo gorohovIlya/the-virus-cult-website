@@ -58,9 +58,17 @@
             <p>You can choose different formats for downloading the visual novel</p>
         </div>
         <div class="download">
-            <button type="windows">Download for Windows</button>
-            <button type="linux">Download for Linux</button>
-            <button type="mac">Download for Mac</button>
+            <form method="GET" action="{{ route('game.download', ['platform' => 'windows']) }}">
+                <button type="submit" class="btn-windows">🪟 Download for Windows</button>
+            </form>
+
+            <form method="GET" action="{{ route('game.download', ['platform' => 'linux']) }}">
+                <button type="submit" class="btn-linux">🐧 Download for Linux</button>
+            </form>
+
+            <form method="GET" action="{{ route('game.download', ['platform' => 'mac']) }}">
+                <button type="submit" class="btn-mac">🍏 Download for Mac</button>
+            </form>
         </div>
     </main>
     <footer>
