@@ -63,8 +63,9 @@
             Thank you for being part of this journey.</p>
         </div>
         <div class="very_big_buttons">
-            <button>Donation alert</button>
-            <button>Donate pay</button>
+            <form method="GET" action="{{ route('donationalerts') }}">
+                <button>Donationalerts</button>
+            </form>
         </div>   
     </main>
     <footer>

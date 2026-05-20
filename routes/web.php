@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DownloadController;
 
 
 Route::get('/', function () {
@@ -64,7 +65,8 @@ Route::get('/support-us', function() {
 
 require __DIR__ . '/reviews.php';
 
-
-
+Route::get('/support-us/donate', function() {
+    return redirect('https://www.donationalerts.com/r/theviruscultproject');
+})->name('donationalerts');
 
 
