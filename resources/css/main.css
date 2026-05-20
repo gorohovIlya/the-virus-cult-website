@@ -1,5 +1,19 @@
+@font-face {
+    font-family: 'Zeequada';
+    src: url('../fonts/Zeequada-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Schiffbauer';
+    src: url('../fonts/Schiffbauer-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-                font-family: Arial, sans-serif;
+                font-family: 'Schiffbauer', Arial, sans-serif;
                 background: black;
                 margin: 0;
                 padding: 0;
@@ -22,17 +36,18 @@ body {
                 padding: 0;
             }
             h1 {
-                margin: 0 70px 0 0;
+                margin: 0 120px 0 0;
                 color: white;
                 font-size: 18px;
             }
+
             header div {
                 margin: 0;
                 padding: 0;
             }
             .img {
                 padding-right: 80px;
-                padding-left: 20px;
+                padding-left: 50px;
             }
             .img h1 {
                 font-size: 28px;
@@ -242,11 +257,12 @@ body {
                 color: white;
                 font-size: 48px;
                 margin: 0;
-                font-family: Arial, sans-serif;
+                font-family: 'Schiffbauer', Arial, sans-serif;
                 letter-spacing: 1px;
             }
 
             .text__4 button {
+                font-family: 'Schiffbauer', Arial, sans-serif;
                 width: 280px;
                 height: 65px;
                 font-size: 22px;
@@ -262,7 +278,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 box-sizing: border-box;
-                font-family: Arial, sans-serif;
+                font-family: 'Schiffbauer' Arial, sans-serif;
             }
 
             .text__4 button:hover {

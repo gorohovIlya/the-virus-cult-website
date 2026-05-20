@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'Schiffbauer';
+    src: url('../fonts/Schiffbauer-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', Arial, sans-serif;
     background: black;
     margin: 0;
     padding: 0;
@@ -22,17 +29,17 @@ footer {
     padding: 0;
 }
 h1 {
-    margin: 0 70px 0 0;
+    margin: 0 120px 0 0;
     color: white;
     font-size: 18px;
+}
+.img {
+    padding-right: 80px;
+    padding-left: 50px;
 }
 header div {
     margin: 0;
     padding: 0;
-}
-.img {
-    padding-right: 80px;
-    padding-left: 20px;
 }
 .img h1 {
     font-size: 28px;
@@ -67,6 +74,7 @@ header div {
     padding: 0 50px;
 }
 .text__2 {
+    margin-left: 33%;
     margin-top: 100px;
     display: flex;
     justify-content: flex-start;
@@ -83,7 +91,7 @@ header div {
     width: 45%;
     font-size: 25px;
     line-height: 1.5;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', Arial, sans-serif;
     text-align: left;
 }
 .plot p {

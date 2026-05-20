@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'Schiffbauer';
+    src: url('../fonts/Schiffbauer-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
-            font-family: Arial, sans-serif;
+            font-family: 'Schiffbauer', Arial, sans-serif;
             height: 100%;
             margin: 0;
             padding: 0;
@@ -101,7 +108,7 @@ html, body {
             align-items: center;
             text-align: center;
             margin: 60px 20px 40px 20px;
-            font-family: Arial, sans-serif;
+            font-family: 'Schiffbauer', Arial, sans-serif;
         }
         
         .download {
@@ -114,6 +121,7 @@ html, body {
         }
 
         .download button {
+            font-family: 'Schiffbauer';
             width: 320px;
             height: 70px;
             font-size: 22px;

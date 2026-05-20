@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'Zeequada';
+    src: url('../fonts/Zeequada-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
-        font-family: Arial, sans-serif;
+        font-family: 'Zeequada', Arial, sans-serif;
         background: black;
         margin: 0;
         padding: 0;

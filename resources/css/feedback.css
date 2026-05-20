@@ -1,5 +1,19 @@
+@font-face {
+    font-family: 'Zeequada';
+    src: url('../fonts/Zeequada-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Schiffbauer';
+    src: url('../fonts/Schiffbauer-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
-            font-family: Arial, sans-serif;
+            font-family: 'Schiffbauer', 'Zeequada', Arial, sans-serif;
             height: 100%;
             margin: 0;
             padding: 0;
@@ -48,8 +62,9 @@ html, body {
         
         .img {
             padding-right: 80px;
-            padding-left: 20px;
+            padding-left: 50px;
         }
+        
         
         .img h1 {
             font-size: 28px;
@@ -133,7 +148,7 @@ h1 {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Schiffbauer', Arial, sans-serif;
         }
 
 .img h1 {
@@ -141,35 +156,12 @@ h1 {
     font-weight: bold;
 }
 
+
+
 .text_for_footer {
     color: white;
     font-size: 50px;
     margin: 0;
-}
-
-.link-hover {
-    text-decoration: none;
-    position: relative;
-    display: inline-block;
-    width: auto;
-}
-
-.link-hover::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0px;
-    left: 0;
-    background-color: purple;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-}
-
-.link-hover:hover::after {
-    visibility: visible;
-    transform: scaleX(1);
 }
 
 div:not(.img) > h1 {
@@ -198,7 +190,7 @@ main {
     font-size: 24px;
     line-height: 1.6;
     margin-bottom: 30px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', Arial, sans-serif;
 }
 
 .text__1 p:first-child {
@@ -230,7 +222,7 @@ main {
     color: #444;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', Arial, sans-serif;
     user-select: none;
 }
 
@@ -250,7 +242,7 @@ main {
     color: #aaa;
     font-size: 16px;
     margin-bottom: 20px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', Arial, sans-serif;
 }
 
 .review-form-container {
@@ -349,7 +341,7 @@ textarea {
     border-radius: 20px;
     padding: 18px 22px;
     font-size: 18px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', Arial, sans-serif;
     color: white;
     width: 100%;
     max-width: 600px;
@@ -375,7 +367,7 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', 'Zeequada', Arial, sans-serif;
 }
 
 button:hover {
@@ -400,7 +392,7 @@ button:active {
     color: white;
     font-size: 36px;
     margin-bottom: 40px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', 'Zeequada', Arial, sans-serif;
 }
 
 .reviews-slider-container {
@@ -443,7 +435,7 @@ button:active {
     color: #b77cff;
     font-weight: bold;
     font-size: 18px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', 'Zeequada', Arial, sans-serif;
 }
 
 .review-rating {
@@ -456,14 +448,14 @@ button:active {
     line-height: 1.6;
     margin: 15px 0;
     font-size: 15px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', 'Zeequada', Arial, sans-serif;
 }
 
 .review-date {
     color: #666;
     font-size: 12px;
     margin-top: 10px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', 'Zeequada', Arial, sans-serif;
 }
 
 .slider-arrow {
@@ -513,7 +505,7 @@ button:active {
     padding: 60px;
     color: #666;
     font-size: 18px;
-    font-family: Arial, sans-serif;
+    font-family: 'Schiffbauer', 'Zeequada', Arial, sans-serif;
 }
 .button-container {
     background: black;
