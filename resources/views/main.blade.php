@@ -66,7 +66,7 @@
                 <p>The visual novel takes place in Berkeley. The main character, Helen, witnesses strange events unfolding at the Institute of Solar-Terrestrial Physics. She meets Liliana, a resistance member fighting a virus cult. Helen decides to join her. Let's see what happens next.</p>
             </div>
             <div>
-                <img src="images.jpeg" alt="The Virus Cult">
+                <img src="{{ asset('images/logo.png') }}" alt="The Virus Cult">
             </div>
         </div>
         <div class="text__4">
@@ -82,11 +82,11 @@
             
             <div class="fullwidth-slider">
                 <div class="slider-track" id="sliderTrack">
-                    <div class="slide-empty"><img src="images.jpeg" alt="The Virus Cult"></div>
-                    <div class="slide-empty"><img src="images.jpeg" alt="The Virus Cult"></div>
-                    <div class="slide-empty"><img src="images.jpeg" alt="The Virus Cult"></div>
-                    <div class="slide-empty"><img src="images.jpeg" alt="The Virus Cult"></div>
-                    <div class="slide-empty"><img src="images.jpeg" alt="The Virus Cult"></div>
+                    <div class="slide-empty"><img src="{{ asset('images/screenshot0001.png') }}" alt="The Virus Cult"></div>
+                    <div class="slide-empty"><img src="{{ asset('images/screenshot0002.png') }}" alt="The Virus Cult"></div>
+                    <div class="slide-empty"><img src="{{ asset('images/screenshot0003.png') }}" alt="The Virus Cult"></div>
+                    <div class="slide-empty"><img src="{{ asset('images/screenshot0004.png') }}" alt="The Virus Cult"></div>
+                    <div class="slide-empty"><img src="{{ asset('images/screenshot0005.png') }}" alt="The Virus Cult"></div>
                 </div>
             </div>
             

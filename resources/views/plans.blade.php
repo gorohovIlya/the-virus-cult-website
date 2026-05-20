@@ -67,46 +67,46 @@
                 <div class="slider-slides" id="slidesTrack">
                     <div class="slide-item">
                         <div class="slide-image">
-                            <img src="" alt="Visual 1">
+                            <img src="{{ asset('images/billy.jpg') }}" alt="Visual 1">
                         </div>
                         <div class="slide-text">
-                            <h3></h3>
+                            <h3>Billy</h3>
+                            <p>Curly dark hair, wears glasses like Harry Potter, and has freckles on his face. Dark eyes. He wears a bracelet on his arm and a chain with a raven around his neck. He is dressed in a green T-shirt with the words “I Love My Work,” dark simple pants, and dark green sneakers.</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <div class="slide-image">
+                            <img src="{{ asset('images/alex.jpg') }}" alt="Visual 2">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Alex</h3>
                             <p></p>
                         </div>
                     </div>
                     <div class="slide-item">
                         <div class="slide-image">
-                            <img src="" alt="Visual 2">
+                            <img src="{{ asset('images/tom.jpg') }}" alt="Visual 3">
                         </div>
                         <div class="slide-text">
-                            <h3></h3>
+                            <h3>Tom</h3>
                             <p></p>
                         </div>
                     </div>
                     <div class="slide-item">
                         <div class="slide-image">
-                            <img src="" alt="Visual 3">
+                            <img src="{{ asset('images/jill.jpg') }}" alt="Visual 4">
                         </div>
                         <div class="slide-text">
-                            <h3></h3>
+                            <h3>Jill</h3>
                             <p></p>
                         </div>
                     </div>
                     <div class="slide-item">
                         <div class="slide-image">
-                            <img src="" alt="Visual 4">
+                            <img src="{{ asset('images/jerom.jpg') }}" alt="Visual 5">
                         </div>
                         <div class="slide-text">
-                            <h3></h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="slide-item">
-                        <div class="slide-image">
-                            <img src="" alt="Visual 5">
-                        </div>
-                        <div class="slide-text">
-                            <h3></h3>
+                            <h3>Jerom</h3>
                             <p></p>
                         </div>
                     </div>
@@ -128,28 +128,28 @@
                 <div class="slider-slides" id="slidesTrackThree">
                     <div class="slide-item">
                         <div class="slide-image">
-                            <img src="" alt="Key art 1">
+                            <img src="{{ asset('images/sketch1.jpg') }}" alt="Key art 1">
                         </div>
                         <div class="slide-text">
-                            <h3></h3>
+                            <h3>Farm</h3>
                             <p></p>
                         </div>
                     </div>
                     <div class="slide-item">
                         <div class="slide-image">
-                            <img src="" alt="Key art 2">
+                            <img src="{{ asset('images/sketch2.jpg') }}" alt="Key art 2">
                         </div>
                         <div class="slide-text">
-                            <h3></h3>
+                            <h3>Cabinet</h3>
                             <p></p>
                         </div>
                     </div>
                     <div class="slide-item">
                         <div class="slide-image">
-                            <img src="" alt="Key art 3">
+                            <img src="{{ asset('images/sketch3.jpg') }}" alt="Key art 3">
                         </div>
                         <div class="slide-text">
-                            <h3></h3>
+                            <h3>Palace</h3>
                             <p></p>
                         </div>
                     </div>
