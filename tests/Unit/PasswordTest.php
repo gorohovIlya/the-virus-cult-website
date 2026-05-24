@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
-class AuthTest extends TestCase
+class PasswordTest extends TestCase
 {
     public function test_password_length(): void
     {
