@@ -29,23 +29,28 @@ setup:
 	@cp .env.example .env 2>/dev/null || true
 	@cp .env.testing.example .env.testing 2>/dev/null || true
 	@make build
+	@make up
+	@echo '${YELLOW}⏳ Waiting for containers to initialize...${RESET}'
+	@sleep 5
+	@$(DOCKER_COMPOSE) exec laravel.test composer install
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan key:generate
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan storage:link
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan migrate:fresh --seed
 	@make core-install
-	@$(DOCKER_COMPOSE) exec app composer install
-	@$(DOCKER_COMPOSE) exec app php artisan key:generate
-	@$(DOCKER_COMPOSE) exec app php artisan migrate
-	@echo '${GREEN}✅ Setup complete! Run "make up" to start.${RESET}'
+	@echo '${GREEN}📦 Installing Node dependencies & building assets...${RESET}'
+	@$(DOCKER_COMPOSE) exec laravel.test npm install
+	@$(DOCKER_COMPOSE) exec laravel.test npm run build
+	@echo '${GREEN}✅ Setup complete! Project is running at http://localhost${RESET}'
 
-## Build Docker images
+## Build containers
 build:
 	@echo '${GREEN}🐳 Building Docker images...${RESET}'
-	@$(DOCKER_COMPOSE) build --no-cache
+	WWWUSER=$$(id -u) WWWGROUP=$$(id -g) $(DOCKER_COMPOSE) build
 
 ## Start containers
 up:
-	@echo '${GREEN}🐳 Starting containers...${RESET}'
-	@$(DOCKER_COMPOSE) up -d
-	@echo '${GREEN}✅ App: http://localhost${RESET}'
-	@echo '${GREEN}✅ Mailpit: http://localhost:8025${RESET}'
+	@echo '${GREEN}🆙 Starting containers...${RESET}'
+	WWWUSER=$$(id -u) WWWGROUP=$$(id -g) $(DOCKER_COMPOSE) up -d
 
 ## Stop containers
 down:
