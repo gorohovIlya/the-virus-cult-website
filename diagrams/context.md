@@ -1,6 +1,6 @@
 # Контекстная диаграмма
 
-mermaid ```
+```mermaid
 graph LR
     subgraph "Software System: The Virus Cult Platform"
         direction TB

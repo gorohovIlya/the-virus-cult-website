@@ -1,5 +1,6 @@
 # Use cases диаграмма
 
+```mermaid
 flowchart TB
     subgraph System["🎮 THE VIRUS CULT APP"]
         
@@ -72,3 +73,4 @@ flowchart TB
     style Interaction fill:#FFF9C4,stroke:#F57F17,stroke-width:1px
     style Management fill:#FFCCBC,stroke:#BF360C,stroke-width:1px
     style ReviewOwn fill:#E0F2F1,stroke:#00695C,stroke-width:1px
+```

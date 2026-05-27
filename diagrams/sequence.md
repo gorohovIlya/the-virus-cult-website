@@ -1,6 +1,6 @@
 # Sequence-диаграмма
 
-mermaid```
+```mermaid
 sequenceDiagram
     actor User as 👤 User
     participant Browser as 🌐 Browser
