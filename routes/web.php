@@ -33,7 +33,7 @@ Route::get('/login', [LoginController::class, 'create'])->name('login');
 
 Route::post('/login', [LoginController::class, 'store']);
 
-Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
+Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 Route::get('/register/success', function() {
     return view('main');
@@ -41,7 +41,7 @@ Route::get('/register/success', function() {
 
 Route::get('/personal-account', function() {
     return view('auth.personal-account');
-})->name('personal-account');
+})->middleware('auth')->name('personal-account');
 
 Route::get('/about-us', function() {
     return view('about_us');
