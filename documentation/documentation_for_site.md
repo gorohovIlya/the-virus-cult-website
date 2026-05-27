@@ -231,15 +231,3 @@
 
 ---
 
-## Примеры маршрутов (предполагаемые)
-
-| HTTP метод | URI | Контроллер | Метод |
-|------------|-----|------------|-------|
-| GET | `/feedback` | `ReviewController` | `index` |
-| POST | `/feedback` | `ReviewController` | `store` |
-| GET | `/login` | `LoginController` | `create` |
-| POST | `/login` | `LoginController` | `store` |
-| POST | `/logout` | `LoginController` | `destroy` |
-| GET | `/register` | `RegisterController` | `create` |
-| POST | `/register` | `RegisterController` | `store` |
-| GET | `/download/{platform}` | `DownloadController` | `downloadGame` |
