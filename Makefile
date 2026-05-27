@@ -1,197 +1,152 @@
 # Makefile для The Virus Cult Project
-# Команды: make help, make setup, make start, make stop, etc.
+# Использование: make <command>
 
-.PHONY: help setup start stop restart shell test migrate fresh seed logs ps clean
+.PHONY: help setup build up down shell test test-unit test-feature test-coverage
+.PHONY: migrate fresh seed logs clean core-build core-test docs-build docs-serve
 
-# Colors for output
-GREEN  := $(shell tput -Txterm setaf 2)
-YELLOW := $(shell tput -Txterm setaf 3)
-WHITE  := $(shell tput -Txterm setaf 7)
-RESET  := $(shell tput -Txterm sgr0)
+# Colors
+GREEN  := \033[0;32m
+YELLOW := \033[1;33m
+RED    := \033[0;31m
+RESET  := \033[0m
 
-TARGET_MAX_CHAR_NUM := 20
-
-## Показать помощь
+## Show help
 help:
 	@echo ''
-	@echo '${GREEN}Available commands for The Virus Cult Project:${RESET}'
+	@echo '${GREEN}The Virus Cult Project - Available Commands${RESET}'
 	@echo ''
-	@awk '/^[a-zA-Z\-\_0-9]+:/ { \
-		helpMessage = match(lastLine, /^## (.*)/); \
-		if (helpMessage) { \
-			helpCommand = substr($$1, 0, index($$1, ":")-1); \
-			helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
-			printf "  ${YELLOW}%-$(TARGET_MAX_CHAR_NUM)s${RESET} ${WHITE}%s${RESET}\n", helpCommand, helpMessage; \
-		} \
-	} \
-	{ lastLine = $$0 }' $(MAKEFILE_LIST)
+	@grep -E '^##[a-zA-Z_-]+:' $(MAKEFILE_LIST) | sort | awk -F ': ' '{command=$$1; sub(/^##/, "", command); help=$$2; printf "  ${YELLOW}%-20s${RESET} %s\n", command, help}'
 	@echo ''
 
-## 🚀 Установка проекта (первый запуск)
-setup: check-dependencies
-	@echo '${GREEN}🚀 Starting setup...${RESET}'
-	@echo '${YELLOW}📋 Copying environment files...${RESET}'
-	@cp .env.example .env || true
-	@cp .env.testing.example .env.testing || true
-	@echo '${YELLOW}🐳 Starting Docker containers...${RESET}'
-	@docker-compose up -d --build
-	@echo '${YELLOW}⏳ Waiting for MySQL to be ready...${RESET}'
-	@sleep 10
-	@echo '${YELLOW}📦 Installing Composer dependencies...${RESET}'
+## Setup project (first time)
+setup:
+	@echo '${GREEN}🚀 Setting up project...${RESET}'
+	@cp .env.example .env 2>/dev/null || true
+	@cp .env.testing.example .env.testing 2>/dev/null || true
+	@make build
+	@make core-install
 	@docker-compose exec app composer install
-	@echo '${YELLOW}🔑 Generating application key...${RESET}'
 	@docker-compose exec app php artisan key:generate
-	@echo '${YELLOW}🔑 Generating testing key...${RESET}'
-	@docker-compose exec app php artisan key:generate --env=testing
-	@echo '${YELLOW}📊 Running migrations...${RESET}'
 	@docker-compose exec app php artisan migrate
-	@echo '${YELLOW}📊 Running testing migrations...${RESET}'
-	@docker-compose exec app php artisan migrate --env=testing
-	@echo '${YELLOW}🌱 Seeding database...${RESET}'
-	@docker-compose exec app php artisan db:seed
-	@echo '${YELLOW}🔗 Creating storage link...${RESET}'
-	@docker-compose exec app php artisan storage:link
-	@echo '${GREEN}✅ Setup complete! Run "make start" to launch the application.${RESET}'
+	@echo '${GREEN}✅ Setup complete! Run "make up" to start.${RESET}'
 
-## 🐳 Запустить контейнеры
-start:
-	@echo '${GREEN}🐳 Starting Docker containers...${RESET}'
+## Build Docker images
+build:
+	@echo '${GREEN}🐳 Building Docker images...${RESET}'
+	@docker-compose build --no-cache
+
+## Start containers
+up:
+	@echo '${GREEN}🐳 Starting containers...${RESET}'
 	@docker-compose up -d
-	@echo '${GREEN}✅ Application is running at http://localhost${RESET}'
-	@echo '${GREEN}   Mailpit UI: http://localhost:8025${RESET}'
+	@echo '${GREEN}✅ App: http://localhost${RESET}'
+	@echo '${GREEN}✅ Mailpit: http://localhost:8025${RESET}'
 
-## 🛑 Остановить контейнеры
-stop:
-	@echo '${YELLOW}🛑 Stopping Docker containers...${RESET}'
+## Stop containers
+down:
+	@echo '${YELLOW}🛑 Stopping containers...${RESET}'
 	@docker-compose down
 
-## 🔄 Перезапустить контейнеры
-restart: stop start
+## Restart containers
+restart: down up
 
-## 🐚 Войти в контейнер приложения
+## Shell into app container
 shell:
 	@docker-compose exec app bash
 
-## 🧪 Запустить тесты
+## Run all tests
 test:
-	@echo '${GREEN}🧪 Running tests...${RESET}'
+	@echo '${GREEN}🧪 Running all tests...${RESET}'
 	@docker-compose exec app php artisan test
 
-## 🧪 Запустить unit тесты
+## Run unit tests only
 test-unit:
 	@echo '${GREEN}🧪 Running unit tests...${RESET}'
 	@docker-compose exec app php artisan test --testsuite=Unit
 
-## 🧪 Запустить feature тесты
+## Run feature tests only
 test-feature:
 	@echo '${GREEN}🧪 Running feature tests...${RESET}'
 	@docker-compose exec app php artisan test --testsuite=Feature
 
-## 🧪 Запустить конкретный тест (make test-filter test=LoginTest)
+## Run specific test (make test-filter test=LoginTest)
 test-filter:
 	@echo '${GREEN}🧪 Running test: $(test)...${RESET}'
 	@docker-compose exec app php artisan test --filter=$(test)
 
-## 📊 Запустить тесты с покрытием
+## Run tests with coverage
 test-coverage:
 	@echo '${GREEN}📊 Running tests with coverage...${RESET}'
 	@docker-compose exec app php artisan test --coverage
 
-## 📦 Установить composer зависимости
-composer-install:
-	@echo '${GREEN}📦 Installing Composer dependencies...${RESET}'
-	@docker-compose exec app composer install
-
-## 📦 Обновить composer зависимости
-composer-update:
-	@echo '${GREEN}📦 Updating Composer dependencies...${RESET}'
-	@docker-compose exec app composer update
-
-## 📋 Выполнить миграции
+## Run migrations
 migrate:
 	@echo '${GREEN}📋 Running migrations...${RESET}'
 	@docker-compose exec app php artisan migrate
 
-## 🔄 Откатить миграции
-migrate-rollback:
-	@echo '${YELLOW}🔄 Rolling back migrations...${RESET}'
-	@docker-compose exec app php artisan migrate:rollback
+## Fresh migrations
+fresh:
+	@echo '${YELLOW}🔄 Running fresh migrations...${RESET}'
+	@docker-compose exec app php artisan migrate:fresh --seed
 
-## 🔄 Обновить миграции (fresh)
-migrate-fresh:
-	@echo '${YELLOW}🔄 Fresh migrations...${RESET}'
-	@docker-compose exec app php artisan migrate:fresh
-
-## 🌱 Заполнить базу данных тестовыми данными
+## Seed database
 seed:
 	@echo '${GREEN}🌱 Seeding database...${RESET}'
 	@docker-compose exec app php artisan db:seed
 
-## 🗑️ Очистить кэш
-cache-clear:
-	@echo '${GREEN}🗑️ Clearing cache...${RESET}'
-	@docker-compose exec app php artisan cache:clear
-	@docker-compose exec app php artisan config:clear
-	@docker-compose exec app php artisan route:clear
-	@docker-compose exec app php artisan view:clear
-
-## 🔗 Показать логи контейнеров
+## Show logs
 logs:
 	@docker-compose logs -f
 
-## 🔗 Показать логи приложения
-logs-app:
-	@docker-compose exec app tail -f storage/logs/laravel.log
-
-## 🐚 Войти в MySQL контейнер
-mysql:
-	@docker-compose exec mysql mysql -u sail -ppassword
-
-## 💾 Создать дамп базы данных
-db-dump:
-	@echo '${GREEN}💾 Creating database dump...${RESET}'
-	@docker-compose exec mysql mysqldump -u sail -ppassword laravel > dump_$$(date +%Y%m%d_%H%M%S).sql
-
-## 🧹 Полная очистка (удалить контейнеры, volumes, images)
+## Clean everything (containers, volumes, images)
 clean:
 	@echo '${RED}⚠️  WARNING: This will remove all containers, volumes, and images!${RESET}'
 	@read -p "Are you sure? (y/N) " -n 1 -r; \
 	echo ''; \
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then \
-		echo '${YELLOW}🧹 Cleaning up...${RESET}'; \
 		docker-compose down -v; \
 		docker-compose rm -f; \
+		docker system prune -f; \
 		echo '${GREEN}✅ Cleanup complete${RESET}'; \
-	else \
-		echo '${YELLOW}Cancelled${RESET}'; \
 	fi
 
-## 🏗️ Пересобрать контейнеры
-rebuild:
-	@echo '${YELLOW}🏗️ Rebuilding containers...${RESET}'
-	@docker-compose up -d --build --force-recreate
+## Install core package locally
+core-install:
+	@echo '${GREEN}📦 Installing core package...${RESET}'
+	@docker-compose exec app composer config repositories.core path packages/core
+	@docker-compose exec app composer require the-virus-cult/core:@dev
 
-## 📊 Статус контейнеров
-ps:
-	@docker-compose ps
+## Build core package
+core-build:
+	@echo '${GREEN}🏗️ Building core package...${RESET}'
+	@docker-compose exec core composer install --no-dev --optimize-autoloader
 
-## ✅ Проверка зависимостей
-check-dependencies:
-	@command -v docker >/dev/null 2>&1 || { echo >&2 "${RED}❌ Docker is required but not installed.${RESET}"; exit 1; }
-	@command -v docker-compose >/dev/null 2>&1 || { echo >&2 "${RED}❌ Docker Compose is required but not installed.${RESET}"; exit 1; }
-	@echo '${GREEN}✅ Docker and Docker Compose are installed${RESET}'
+## Test core package
+core-test:
+	@echo '${GREEN}🧪 Testing core package...${RESET}'
+	@docker-compose exec core phpunit
 
-## 🎨 Установка npm зависимостей (если есть фронтенд)
-npm-install:
-	@echo '${GREEN}📦 Installing npm dependencies...${RESET}'
-	@docker-compose exec app npm install
+## Build documentation
+docs-build:
+	@echo '${GREEN}📚 Building documentation...${RESET}'
+	@docker-compose exec docs mkdocs build
 
-## 🎨 Собрать фронтенд assets
-npm-build:
-	@echo '${GREEN}🎨 Building assets...${RESET}'
-	@docker-compose exec app npm run build
+## Serve documentation
+docs-serve:
+	@echo '${GREEN}📚 Serving documentation at http://localhost:8000${RESET}'
+	@docker-compose exec docs mkdocs serve --dev-addr=0.0.0.0:8000
 
-## 🎨 Запустить dev сервер для фронтенда
-npm-dev:
-	@echo '${GREEN}🎨 Starting dev server...${RESET}'
-	@docker-compose exec app npm run dev
+## Validate architecture (checks dependencies)
+validate:
+	@echo '${GREEN}🔍 Validating architecture...${RESET}'
+	@docker-compose exec app php artisan architecture:check
+
+## Code style fix
+cs-fix:
+	@echo '${GREEN}🎨 Fixing code style...${RESET}'
+	@docker-compose exec app ./vendor/bin/pint
+
+## Run static analysis
+stan:
+	@echo '${GREEN}🔬 Running static analysis...${RESET}'
+	@docker-compose exec app ./vendor/bin/phpstan analyse
