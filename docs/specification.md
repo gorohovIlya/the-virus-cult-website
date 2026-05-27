@@ -1,7 +1,3 @@
-
-### 6. docs/specification.md
-
-```markdown
 # Спецификация требований
 
 ## 1. Введение
