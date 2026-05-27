@@ -23,7 +23,7 @@ class RegistrationTest extends TestCase
 
         $this->assertDatabaseHas('users', ['email' => 'testuser@gmail.com']);
 
-        $response->assertRedirect('/');
+        $response->assertRedirect('/register/success');
         $this->assertAuthenticated();
     }
 
