@@ -15,13 +15,13 @@ class DownloadController
         ];
 
         if (!array_key_exists($platform, $files)) {
-            abort(404, 'Платформа не найдена.');
+            abort(404, 'Platform not found.');
         }
 
         $absolutePath = storage_path('app/downloads/' . $files[$platform]);
 
         if (!file_exists($absolutePath)) {
-            abort(404, "Файл не найден по пути: " . $absolutePath);
+            abort(404, "File not found on path: " . $absolutePath);
         }
 
         return response()->download($absolutePath, "The_Virus_Cult_{$platform}.zip");
