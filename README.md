@@ -1,6 +1,11 @@
 # О проекте
 
-Веб-сайт для визуальной новеллы "The Virus Cult"
+Веб-сайт для визуальной новеллы "The Virus Cult". Проект предоставляет:
+
+- Регистрацию и авторизацию с верификацией email
+- Систему отзывов и рейтингов
+- Скачивание игры для Windows, Linux и Mac
+- Интеграцию с DonationAlerts для пожертвований
 
 ## Используемые практики open source разработки
 
@@ -8,6 +13,54 @@
 - Использование [Docker](https://github.com/gorohovIlya/the-virus-cult-website/blob/main/compose.yaml) (через PHP Sail)
 - [Тестирование](https://github.com/gorohovIlya/the-virus-cult-website/tree/main/tests)
 - [Документация](https://github.com/gorohovIlya/the-virus-cult-website/tree/main/documentation)
+
+## Быстрый старт (Makefile)
+
+### Требования
+
+- Docker & Docker Compose
+- Make (Linux/Mac) или WSL2 (Windows)
+
+### Установка
+
+```bash
+# Клонирование репозитория
+git clone https://github.com/your-username/the-virus-cult.git
+cd the-virus-cult
+
+# Установка проекта (первый запуск)
+make setup
+
+# Запуск приложения
+make up
+```
+
+После установки сайт будет доступен по адресу: (http://localhost)
+
+### Структура проекта
+
+```bash
+├── app/                    # Laravel приложение
+├── packages/core/          # Переиспользуемая доменная логика
+├── tests/                  # Тесты приложения
+├── docs/                   # Документация
+├── infra/                  # Docker и инфраструктура
+├── scripts/                # Вспомогательные скрипты
+└── Makefile                # Автоматизация задач
+```
+
+### Команды Makefile
+
+| make setup | Полная установка проекта |
+| make up | Запуск контейнеров |
+| make down | Остановка контейнеров |
+| make shell | Вход в контейнер |
+| make test | Запуск всех тестов |
+| make test-unit | Unit тесты |
+| make test-feature | Feature тесты |
+| make migrate | Миграции БД|
+| make logs | Просмотр логов |
+| make clean | Полная очистка |
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
