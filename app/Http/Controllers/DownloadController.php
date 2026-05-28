@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DownloadController
 {
@@ -15,14 +16,18 @@ class DownloadController
         ];
 
         if (!array_key_exists($platform, $files)) {
-            abort(404, 'Platform not found.');
+            abort(404, 'Platform not found');
         }
 
-        $absolutePath = storage_path('app/downloads/' . $files[$platform]);
+        $relativePath = 'downloads/' . $files[$platform];
 
-        if (!file_exists($absolutePath)) {
-            abort(404, "File not found on path: " . $absolutePath);
+        // Проверяем существование файла через фасад (работает и в тестах, и в веб)
+        if (!Storage::disk('local')->exists($relativePath)) {
+            abort(404, 'File not found');
         }
+
+        // Получаем правильный абсолютный путь (в тестах он будет вести в виртуальное хранилище)
+        $absolutePath = Storage::disk('local')->path($relativePath);
 
         return response()->download($absolutePath, "The_Virus_Cult_{$platform}.zip");
     }
