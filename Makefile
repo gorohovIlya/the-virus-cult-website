@@ -1,6 +1,9 @@
 # Makefile для The Virus Cult Project
 # Использование: make <command>
 
+export WWWUSER := $(shell id -u)
+export WWWGROUP := $(shell id -g)
+
 .PHONY: help setup build up down shell test test-unit test-feature test-coverage
 .PHONY: migrate fresh seed logs clean core-build core-test docs-build docs-serve
 
@@ -62,47 +65,47 @@ restart: down up
 
 ## Shell into app container
 shell:
-	@$(DOCKER_COMPOSE) exec app bash
+	@$(DOCKER_COMPOSE) exec laravel.test bash
 
 ## Run all tests
 test:
 	@echo '${GREEN}🧪 Running all tests...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan test
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan test
 
 ## Run unit tests only
 test-unit:
 	@echo '${GREEN}🧪 Running unit tests...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan test --testsuite=Unit
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan test --testsuite=Unit
 
 ## Run feature tests only
 test-feature:
 	@echo '${GREEN}🧪 Running feature tests...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan test --testsuite=Feature
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan test --testsuite=Feature
 
 ## Run specific test (make test-filter test=LoginTest)
 test-filter:
 	@echo '${GREEN}🧪 Running test: $(test)...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan test --filter=$(test)
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan test --filter=$(test)
 
 ## Run tests with coverage
 test-coverage:
 	@echo '${GREEN}📊 Running tests with coverage...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan test --coverage
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan test --coverage
 
 ## Run migrations
 migrate:
 	@echo '${GREEN}📋 Running migrations...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan migrate
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan migrate
 
 ## Fresh migrations
 fresh:
 	@echo '${YELLOW}🔄 Running fresh migrations...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan migrate:fresh --seed
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan migrate:fresh --seed
 
 ## Seed database
 seed:
 	@echo '${GREEN}🌱 Seeding database...${RESET}'
-	@$(DOCKER_COMPOSE) exec app php artisan db:seed
+	@$(DOCKER_COMPOSE) exec laravel.test php artisan db:seed
 
 ## Show logs
 logs:
