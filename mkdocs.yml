@@ -1,0 +1,38 @@
+site_name: The Virus Cult Project
+site_description: База знаний и техническая документация проекта The Virus Cult
+
+theme:
+  name: material
+  palette:
+    scheme: slate        # Темная тема под стилистику игры
+    primary: deep purple  # Фиолетовый основной цвет
+    accent: deep purple
+  features:
+    - navigation.tabs    # Верхние вкладки
+    - content.code.copy  # Кнопка копирования кода
+
+markdown_extensions:
+  - pymdownx.superfences:
+      # Позволяет MkDocs Material рендерить диаграммы Mermaid прямо из блоков кода
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.mermaid_format
+
+nav:
+  - Главная: index.md
+  - 🏗️ Архитектура и Спецификации:
+      - Обзор архитектуры: architecture.md
+      - Техническое задание (Спецификация): specification.md
+      - API Reference: api.md
+      - Тестирование (PHPUnit): testing.md
+  - 📊 Диаграммы и UML:
+      - Контекст системы: diagrams/context.md
+      - Сценарии использования (Use Cases): diagrams/usecases.md
+      - Диаграмма последовательности (Sequence): diagrams/sequence.md
+  - 🎮 Разработка новеллы (Ren'Py):
+      - Структура скриптов: renpy/structure.md
+      - Локализация и перевод: renpy/localization.md
+  - 📝 Лор и Сценарий:
+      - Дизайн-документ: lore/design-doc.md
+      - Мир и Персонажи: lore/world.md
