@@ -139,15 +139,15 @@ core-test:
 	@echo '${GREEN}🧪 Testing core package...${RESET}'
 	@$(DOCKER_COMPOSE) exec core phpunit
 
-## Build documentation
 docs-build:
 	@echo '${GREEN}📚 Building documentation...${RESET}'
-	@$(DOCKER_COMPOSE) exec docs mkdocs build
+	@$(DOCKER_COMPOSE) exec docs build
 
-## Serve documentation
+## Serve documentation (Просмотр логов работающего сервера)
 docs-serve:
-	@echo '${GREEN}📚 Serving documentation at http://localhost:8000${RESET}'
-	@$(DOCKER_COMPOSE) exec docs mkdocs serve --dev-addr=0.0.0.0:8000
+	@echo '${GREEN}📚 Documentation is running at http://localhost:8000${RESET}'
+	@echo '${GREEN}📋 Showing live logs (Press Ctrl+C to exit logs)...${RESET}'
+	@$(DOCKER_COMPOSE) logs -f docs
 
 ## Validate architecture (checks dependencies)
 validate:

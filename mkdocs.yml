@@ -12,13 +12,7 @@ theme:
     - content.code.copy  # Кнопка копирования кода
 
 markdown_extensions:
-  - pymdownx.superfences:
-      # Позволяет MkDocs Material рендерить диаграммы Mermaid прямо из блоков кода
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.mermaid_format
-
+  - pymdownx.superfences
 nav:
   - Главная: index.md
   - 🏗️ Архитектура и Спецификации:
