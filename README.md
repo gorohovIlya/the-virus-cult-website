@@ -35,24 +35,8 @@ make setup
 make up
 ```
 
-<<<<<<< HEAD
 После установки сайт будет доступен по адресу: (http://localhost)
 
-### Команды Makefile
-
-| Команда | Функция |
-| ------- | ------- |
-| make setup | Полная установка проекта |
-| make up | Запуск контейнеров |
-| make down | Остановка контейнеров |
-| make shell | Вход в контейнер |
-| make test | Запуск всех тестов |
-| make test-unit | Unit тесты |
-| make test-feature | Feature тесты |
-| make migrate | Миграции БД|
-| make logs | Просмотр логов |
-| make clean | Полная очистка |
-=======
 ### Все команды Makefile
 
 | Команда | Функция |
