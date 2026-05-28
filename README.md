@@ -6,9 +6,67 @@
 
 - Git и GitHub (совместная работа двух людей в одном репозитории, ветки для добавления новых фич, pull-request'ы)
 - Использование [Docker](https://github.com/gorohovIlya/the-virus-cult-website/blob/main/compose.yaml) (через PHP Sail)
+<<<<<<< Updated upstream
 - [Тестирование]()
 - [Диаграммы и схемы]()
 - [Документация]()
+=======
+- [Тестирование](https://github.com/gorohovIlya/the-virus-cult-website/tree/main/tests)
+- [Документация](https://github.com/gorohovIlya/the-virus-cult-website/tree/main/documentation)
+
+## Быстрый старт (Makefile)
+
+### Требования
+
+- Docker & Docker Compose
+- Make (Linux/Mac) или WSL2 (Windows)
+
+### Установка
+
+```bash
+# Клонирование репозитория
+git clone https://github.com/your-username/the-virus-cult.git
+cd the-virus-cult
+
+# Установка проекта (первый запуск)
+make setup
+
+# Запуск приложения
+make up
+```
+
+### Все команды Makefile
+
+| Команда | Функция |
+| ------- | ------- |
+| `make help` | Показать справочную информацию по всем доступным командам |
+| `make setup` | Полная первоначальная установка проекта (сборка, запуск, создание `.env` и установка зависимостей) |
+| `make build` | Сборка или пересборка Docker-контейнеров |
+| `make up` | Запуск всех контейнеров в фоновом режиме |
+| `make down` | Остановка и удаление контейнеров |
+| `make shell` | Вход в bash-терминал основного контейнера приложения (`laravel.test`) |
+| `make test` | Запуск абсолютно всех тестов проекта |
+| `make test-unit` | Запуск только Unit (юнит) тестов |
+| `make test-feature` | Запуск только Feature (функциональных) тестов |
+| `make test-coverage` | Запуск тестов с генерацией отчета о покрытии кода (HTML-отчет) |
+| `make migrate` | Запуск миграций базы данных |
+| `make fresh` | Пересоздание базы данных (полный сброс и повторный запуск всех миграций) |
+| `make seed` | Наполнение базы данных тестовыми данными (сидами) |
+| `make logs` | Просмотр логов всех контейнеров в реальном времени |
+| `make clean` | Полная очистка: остановка контейнеров, удаление volumes, очистка кэша и Docker-системы |
+| `make core-install` | Локальная установка кастомного пакета `core` в контейнер приложения через Composer |
+| `make core-build` | Сборка пакета `core` (установка зависимостей без dev-пакетов и оптимизация автозагрузки) |
+| `make core-test` | Запуск PHPUnit тестов изолированно для пакета `core` |
+| `make docs-build` | Сборка статического сайта документации с помощью утилиты `mkdocs` |
+| `make docs-serve` | Запуск локального веб-сервера документации MkDocs на порту `8000` |
+| `make validate` | Проверка и валидация архитектурных границ проекта (контроль зависимостей классов) |
+
+После установки сайт будет доступен по адресу: (http://localhost)
+
+### Подтверждение почты
+
+После того как вы заполнили форму регистрации, перейдите по адресу (http://localhost:8025)
+Вы увидите окно Mailpit и письмо. Вам нужно будет нажать на письмо и нажать кнопку Verify Email Address
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
